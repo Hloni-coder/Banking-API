@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('{{ url_for("static", filename="images/create_bg.jpeg") }}') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+        h1 {
+            text-shadow: 2px 2px 5px #000;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover { background: rgba(0, 86, 179, 0.8); }
+        a { display: inline-block; margin-top: 20px; color: white; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Create a New Bank Account</h1>
+    <form action="{{ url_for('create_account') }}" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required><br>
+        <input type="email" name="email" placeholder="Email Address" required><br>
+        <input type="text" name="contact" placeholder="Contact Number"><br>
+        <input type="number" name="initial_balance" placeholder="Initial Deposit" step="0.01" min="0"><br>
+        <button type="submit">Create Account</button>
+    </form>
+    <p><a href="{{ url_for('home') }}">⬅ Back to Home</a></p>
+</body>
+</html>
